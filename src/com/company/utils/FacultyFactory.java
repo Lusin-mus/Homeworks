@@ -1,4 +1,8 @@
-package com.company.faculty;
+package com.company.utils;
+
+import com.company.model.faculty.Faculty;
+import com.company.model.faculty.impl.LiteratureAndArt;
+import com.company.model.faculty.impl.Mathematics;
 
 public class FacultyFactory {
     public static Faculty getFaculty(String facultyName) throws Exception {

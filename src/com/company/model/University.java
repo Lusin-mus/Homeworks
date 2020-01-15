@@ -1,15 +1,13 @@
-package com.company.university;
+package com.company.model;
 
-import com.company.faculty.Faculty;
-import com.company.group.Group;
-import com.company.student.Student;
-import com.company.subject.Subject;
+import com.company.model.faculty.Faculty;
+import com.company.model.subject.Subject;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class University {
-    private static University single_instance;
+    private static University singleInstance;
 
     private List<Faculty> faculties = new ArrayList<>();
 
@@ -20,10 +18,10 @@ public class University {
     }
 
     public static University getInstance() {
-        if (single_instance == null) {
-            single_instance = new University();
+        if (singleInstance == null) {
+            singleInstance = new University();
         }
-        return single_instance;
+        return singleInstance;
     }
 
     public List<Faculty> getFaculties() {

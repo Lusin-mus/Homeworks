@@ -1,13 +1,13 @@
 package com.company;
 
-import com.company.faculty.Faculty;
-import com.company.faculty.FacultyFactory;
-import com.company.group.Group;
-import com.company.student.Student;
-import com.company.subject.English;
-import com.company.subject.Mathematics;
-import com.company.subject.TheoreticalComputerScience;
-import com.company.university.University;
+import com.company.model.faculty.Faculty;
+import com.company.model.subject.impl.Mathematics;
+import com.company.utils.FacultyFactory;
+import com.company.model.Group;
+import com.company.model.Student;
+import com.company.model.subject.impl.English;
+import com.company.model.subject.impl.TheoreticalComputerScience;
+import com.company.model.University;
 
 import java.util.Objects;
 
@@ -36,7 +36,7 @@ public class Main {
                     student1.setFirstName("Ashot ");
                     student1.setLastName("Amaryan");
                     group1.getStudents().add(student1);
-                    System.out.print("the average of scores is:");
+                    System.out.print("The average of scores is: ");
                     System.out.println(student1.averageOfStudentScores());
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -59,8 +59,7 @@ public class Main {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                System.out.println("Average score of math for mathematics faculty is " +
-                        mathematics.averageOfScoresOfSubjectForFaculty(English.class));
+                System.out.println(mathematics.averageOfScoresOfSubjectForFaculty(English.class));
 
             } catch (Exception e) {
                 e.printStackTrace();
