@@ -8,10 +8,7 @@ public class Subject {
     private final int minScore=0;
     private final int maxScore=10;
 
-    public Subject(int score) throws Exception {
-        throwIfInvalidScore(score);
-        this.score = score;
-    }
+
 
     public double getScore() {
         return score;
@@ -26,6 +23,11 @@ public class Subject {
         if (score < minScore || score > maxScore) {
             throw new InvalidScoreException("Invalid score: " + score);
         }
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }
 

@@ -1,9 +1,11 @@
 package com.company.model.subject.impl;
 
+import com.company.exception.InvalidScoreException;
 import com.company.model.subject.Subject;
 
 public class History extends Subject {
-    public History(int score) throws Exception {
-        super(score);
+    @Override
+    public void setScore(int score) throws InvalidScoreException {
+        super.setScore(score);
     }
 }

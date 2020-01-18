@@ -18,7 +18,7 @@ public abstract class Faculty {
     }
 
     public double averageOfScoresOfSubjectForFaculty(Class<? extends Subject> subjectClass) throws Exception {
-        System.out.print("Average score of math for the " + getName());
+        System.out.print("Average score of the subject for the " + getName()+ "-");
         if (groups.size() == 0) {
             throw new Exception("Faculty should have at least one group.");
         }
