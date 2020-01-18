@@ -126,7 +126,9 @@ public class Student {
     }
 
     public double averageOfStudentScores() throws Exception {
-
+        if (subjects.size() == 0) {
+            throw new Exception("Student has no subject");
+        }
         double average;
         double sum = 0;
         for (Subject subject : subjects) {
@@ -134,9 +136,7 @@ public class Student {
         }
         average = sum / (subjects.size());
 
-        if (average == 0) {
-            throw new Exception("Student has no subject");
-        }
+
         return average;
     }
 }
