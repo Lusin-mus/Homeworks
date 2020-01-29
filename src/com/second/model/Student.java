@@ -1,4 +1,4 @@
-package com.second.Model;
+package com.second.model;
 
 public class Student implements Comparable<Student>{
     private String firstName;

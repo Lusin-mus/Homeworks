@@ -1,4 +1,6 @@
-package com.second.Model;
+package com.second.collection;
+
+import com.second.model.Student;
 
 import java.util.Arrays;
 
@@ -40,30 +42,26 @@ public class CustomArrayList {
         }
         return students[index];
     }
+
     public boolean remove(Student student) {
-        final Student[] st = students;
+        final Student[] students1 = students;
         final int size = this.size;
         int i = 0;
-        found: {
-            if (student == null) {
-                for (; i < size; i++)
-                    if (st[i] == null)
-                        break found;
-            } else {
-                for (; i < size; i++)
-                    if (student.equals(st[i]))
-                        break found;
-            }
-            return false;
+        found:
+        {
+            for (; i < size; i++)
+                if (student == students1[i])
+                    break found;
+                return  false;
         }
-        fastRemove(st, i);
+        fastRemove(students1, i);
         return true;
     }
 
-    private void fastRemove(Object[] es, int i) {
+    private void fastRemove(Student[] students, int i) {
         final int newSize;
         if ((newSize = size - 1) > i)
-            System.arraycopy(es, i + 1, es, i, newSize - i);
-        es[size = newSize] = null;
+            System.arraycopy(students, i + 1, students, i, newSize - i);
+        students[size = newSize] = null;
     }
 }

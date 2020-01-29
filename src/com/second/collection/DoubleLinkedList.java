@@ -1,5 +1,8 @@
-package com.second.Model;
+package com.second.collection;
 
+import com.second.model.Student;
+
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class DoubleLinkedList {
@@ -7,9 +10,40 @@ public class DoubleLinkedList {
     private Node head;
     private Node tail;
     private int size;
+    private int index = 0;
 
     public DoubleLinkedList() {
         size = 0;
+    }
+
+
+    private class StudentIterator implements Iterator<Student> {
+        private Node next;
+
+        StudentIterator() {
+            next = head;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return index < size;
+        }
+
+        @Override
+        public Student next() {
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
+            Node lastReturned = next;
+            next = next.next;
+            index++;
+            return lastReturned.student;
+
+        }
+    }
+
+    public StudentIterator studentIterator() {
+        return new StudentIterator();
     }
 
     private class Node {
@@ -56,41 +90,38 @@ public class DoubleLinkedList {
     }
 
 
-    public Student pop() {
+    public void pop() {
         if (isEmpty()) {
             throw new NoSuchElementException("There is no element to remove");
         }
-        Node temp = head;
         head = head.next;
         if (head == null) {
             tail = null;
+        } else {
+        head.prev = null;
         }
-        temp.next.prev = null;
         size--;
-        return temp.student;
     }
 
-    public Student removeLast() {
+    public void removeLast() {
         if (isEmpty()) {
             throw new NoSuchElementException("There is no element to remove");
         }
-        Node temp = tail;
         tail = tail.prev;
         if (tail == null) {
             head = null;
-        }
-        temp.prev.next = null;
+        } else
+            tail.next = null;
         size--;
-        return temp.student;
     }
 
     public void print() {
         Node temp = head;
         while (temp != null) {
-            System.out.println(temp.student.getFirstName()+ " " + temp.student.getLastName());
+            System.out.println(temp.student.getFirstName() + " " + temp.student.getLastName());
             if (temp.next != null) {
                 temp = temp.next;
-            } else{
+            } else {
                 break;
             }
         }

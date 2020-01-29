@@ -1,32 +1,30 @@
 package com.second;
 
-import com.second.Model.*;
+import com.second.collection.CustomArrayList;
+import com.second.collection.DoubleLinkedList;
+import com.second.collection.StudentUtil;
+import com.second.model.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedList;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
         ArrayList<Student> students = new ArrayList<>();
-        students.add(new Student("Anna", "Danielyan", 20));
-        students.add(new Student("Nelli", "Karapetuyan", 19));
-        students.add(new Student("Arman", "Tovmassyan", 18));
+        students.add(new Student("Anna", "Danielyan", 16));
+        students.add(new Student("Anna", "Karapetuyan", 17));
+        students.add(new Student("Anna", "Tovmassyan", 18));
         students.add(new Student("Roland", "Barseghyan", 16));
 
-        Collections.sort(students, new StudentComparatorUsingFirstName());
-        System.out.println("Sorting students by firstName in ascending order: ");
+        System.out.println("Sorting students by firstName, then by age in descending order ");
+        Comparator<Student> compareStudentByFirstNameThenByAgeInDescendingOrder
+        = Comparator.comparing(Student::getFirstName)
+        .thenComparing(Student::getAge, Comparator.reverseOrder());
+        Collections.sort(students,compareStudentByFirstNameThenByAgeInDescendingOrder);
         printStudents(students);
 
         System.out.println();
-
-        Collections.sort(students, new StudentComparatorUsingAge());
-        System.out.println("Sorting students by age in descending order: ");
-        printStudents(students);
-
-        System.out.println();
-        Collections.sort(students, Student::compareTo);
+        Collections.sort(students);
         System.out.println("Sorting students by lastName in ascending order: ");
         LinkedList<Student> linkedListOfStudents = new LinkedList<>(students);
         printStudentsFromLinkedList(linkedListOfStudents);
@@ -56,26 +54,18 @@ public class Main {
         doubleLinkedListOfStudents.print();
         System.out.println();
 
-        Student [] studentList=new Student[5];
-        studentList[0]=new Student("Armen", "Araqelyan", 21);
-        studentList[1]=new Student("Tigran", "Lalayan", 19);
-        studentList[2]=new Student("Roland", "Tsaturyan", 20);
-        studentList[3]=new Student("Karine", "Hovakimyan", 18);
-        studentList[4]=new Student("Marine", "Gevorgyan", 22);
-
 
         System.out.println("Initialize arrayList and display");
-        StudentUtil studentUtil1= new StudentUtil();
-        studentUtil1.initArrayList(studentList);
+        StudentUtil studentUtil1=new StudentUtil();
+        studentUtil1.initArrayList();
         System.out.println();
 
         System.out.println("Initialize linkedlist and display");
         StudentUtil studentUtil12= new StudentUtil();
-        studentUtil12.initLinkedList(studentList);
+        studentUtil12.initLinkedList();
 
 
     }
-
 
     public static void printStudents(ArrayList<Student> students) {
         for (Student student : students) {
