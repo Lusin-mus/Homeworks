@@ -3,7 +3,7 @@ package enums;
 enum Months {
     JANUARY ( new String [] {"January 1", "January 28"}, 2, 31),
     FEBRUARY (new String [] {"February 14", "February 25"}, 2, 29),
-    MARCH ( new String [] {"March 8" , "March 14", "March 28"}, 3, 31),
+    MARCH ( new String [] {"March 8" , "March 14", "March 20"}, 3, 31),
     APRIL ( new String [] {"April 1", "April 7", "April 24","April 29"}, 4, 30),
     MAY (new String [] {"May 9"}, 1, 31),
     JUNE ( new String [] {"June 1", "June 5", "June 16", "June 18"}, 4, 30),
@@ -37,6 +37,15 @@ enum Months {
     public int getNumberOfDays() {
         return numberOfDays;
     }
+
+   public boolean checkHolidays(String string){
+        for(int i=0; i<holiday.length; i++){
+            if(holiday[i].equals(string)){
+                return true;
+            }
+            }
+        return false;
+        }
 }
 
 

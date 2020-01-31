@@ -14,13 +14,15 @@ public class Main {
 
         System.out.println("Months names");
         Months[] months = Months.values();
-        for (Months month: months) {
+        for (Months month : months) {
             System.out.println(month);
         }
         System.out.println();
 
-        System.out.println("Is March 8 a public holiday: " + Arrays.toString(march.getHoliday()).contains("March 8"));
-        System.out.println("Is March 21 a public holiday: " + Arrays.toString(march.getHoliday()).contains("March 21"));
+        System.out.println("Is March 8 a public holiday: " + march.checkHolidays("March 8"));
+        System.out.println("Is March 21 a public holiday: " + march.checkHolidays("March 21"));
+
+
     }
 
 }
