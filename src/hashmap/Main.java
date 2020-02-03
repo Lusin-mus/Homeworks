@@ -2,6 +2,7 @@ package hashmap;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
 
@@ -9,17 +10,17 @@ public class Main {
 
         ArrayList<Student> studentArrayList = new ArrayList<>();
         studentArrayList.add(new Student("Diana", "Asatryan", 32,
-                "0922111111", "Physics"));
+                "0922111111", Faculties.PHYSICS));
         studentArrayList.add(new Student("Elen", "Mirzoyan", 12,
-                "0933333333", "English"));
+                "0933333333", Faculties.ENGLISH));
         studentArrayList.add(new Student("Diana", "Asatryan", 21,
-                "0938111111", "Philosophy"));
+                "0938111111", Faculties.PHILOSOPHY));
         studentArrayList.add(new Student("Karen", "Balayan", 12,
-                "0977777777", "Math"));
+                "0977777777", Faculties.MATH));
         studentArrayList.add(new Student("Diana", "Asatryan", 22,
-                "0988111111", "Math"));
+                "0988111111", Faculties.MATH));
         studentArrayList.add(new Student("Karen", "Balayan", 23,
-                "098888811", "Philosophy"));
+                "098888811", Faculties.PHILOSOPHY));
 
         StudentService studentService = new StudentService();
         System.out.println("Number of students occurrences");
@@ -27,20 +28,12 @@ public class Main {
         System.out.println();
 
         System.out.println("Number of students in each faculty");
-        printMapOfFaculties(studentService.getCountOfStudentsInFaculties(studentArrayList));
+        printMap(studentService.getCountOfStudentsInFaculties(studentArrayList));
 
     }
 
-
-    private static void printMap(HashMap<Student, Integer> map) {
-        for (HashMap.Entry<Student, Integer> entry : map.entrySet()) {
-            System.out.println(entry.getKey().toString() + " "
-                    + entry.getValue());
-        }
-    }
-
-    private static void printMapOfFaculties(HashMap<String, Integer> map) {
-        for (HashMap.Entry<String, Integer> entry : map.entrySet()) {
+    private static void printMap(Map<Student, Integer> map) {
+        for (Map.Entry<Student, Integer> entry : map.entrySet()) {
             System.out.println(entry.getKey() + " "
                     + entry.getValue());
         }

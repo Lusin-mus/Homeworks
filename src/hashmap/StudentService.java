@@ -1,6 +1,7 @@
 package hashmap;
 
 import java.util.ArrayList;
+import java.util.EnumMap;
 import java.util.HashMap;
 
 class StudentService {
@@ -14,11 +15,11 @@ class StudentService {
         return studentsOccurrences;
     }
 
-    HashMap getCountOfStudentsInFaculties(ArrayList<Student> students) {
-        HashMap<String, Integer> numberOfStudentsInEachFaculty = new HashMap<>();
+    EnumMap getCountOfStudentsInFaculties(ArrayList<Student> students) {
+       EnumMap<Faculties, Integer> numberOfStudentsInEachFaculty = new EnumMap<>(Faculties.class);
         for (Student student : students) {
-            Integer countOfStudentsInFaculties = numberOfStudentsInEachFaculty.get(student.getFacultyName());
-            numberOfStudentsInEachFaculty.put(student.getFacultyName(), (countOfStudentsInFaculties == null) ?
+            Integer countOfStudentsInFaculties = numberOfStudentsInEachFaculty.get(student.getFaculty());
+            numberOfStudentsInEachFaculty.put(student.getFaculty(), (countOfStudentsInFaculties == null) ?
                     1 : countOfStudentsInFaculties + 1);
         }
         return numberOfStudentsInEachFaculty;

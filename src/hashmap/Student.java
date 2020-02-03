@@ -7,15 +7,15 @@ public class Student {
     private String lastName;
     private int age;
     private String phoneNumber;
-    private String facultyName;
+    private Faculties faculty;
 
 
-    public Student(String firstName, String lastName, int age, String phoneNumber, String faculty) {
+    public Student(String firstName, String lastName, int age, String phoneNumber, Faculties faculty) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.phoneNumber = phoneNumber;
-        this.facultyName = faculty;
+        this.faculty = faculty;
     }
 
 
@@ -51,12 +51,12 @@ public class Student {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getFacultyName() {
-        return facultyName;
+    public Faculties getFaculty() {
+        return faculty;
     }
 
-    public void setFacultyName(String facultyName) {
-        this.facultyName = facultyName;
+    public void setFaculty(Faculties faculty) {
+        this.faculty = faculty;
     }
 
     @Override

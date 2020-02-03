@@ -19,8 +19,8 @@ public class Main {
         }
         System.out.println();
 
-        System.out.println("Is March 8 a public holiday: " + march.checkHolidays("March 8"));
-        System.out.println("Is March 21 a public holiday: " + march.checkHolidays("March 21"));
+        System.out.println("Is March 8 a public holiday: " + march.checkHolidays(8));
+        System.out.println("Is March 21 a public holiday: " + march.checkHolidays(21));
 
 
     }
