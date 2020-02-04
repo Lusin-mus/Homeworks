@@ -1,4 +1,4 @@
-package enums;
+package com.enums;
 
 enum Months {
     JANUARY ( new int [] {1, 28},31),

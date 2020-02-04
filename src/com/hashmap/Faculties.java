@@ -1,4 +1,4 @@
-package hashmap;
+package com.hashmap;
 
 enum Faculties {
     MATH,

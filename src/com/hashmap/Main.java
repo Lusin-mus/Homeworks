@@ -1,7 +1,6 @@
-package hashmap;
+package com.hashmap;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 public class Main {
